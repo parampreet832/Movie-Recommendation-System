@@ -1,4 +1,4 @@
-🎬 Movie Recommendation System
+<h2>🎬 Movie Recommendation System</h2>h2>
 
 Production-Grade Content-Based Recommender | NLP • Cosine Similarity • FastAPI
 
@@ -59,7 +59,7 @@ FastAPI Inference Service
 🛠️ Tech Stack
 
 Layer	              Technology
-Language            Python
+Language            Python<br>
 API	                FastAPI
 NLP	                NLTK
 ML	                Scikit-Learn
