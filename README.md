@@ -1,12 +1,10 @@
-<h2>🎬 Movie Recommendation System</h2>h2>
+<h2>🎬 Movie Recommendation System</h2>
 
 Production-Grade Content-Based Recommender | NLP • Cosine Similarity • FastAPI
 
 A scalable, production-ready content-based movie recommendation system built using real-world data from TMDB. This project demonstrates end-to-end ML system design, including data ingestion, NLP feature engineering, similarity modeling, API deployment.
 
------------------------------------------------------------------------------
-
-📌 Why This Project Matters
+<h2>📌 Why This Project Matters</h2>
 
 This project showcases skills evaluated in Data Scientist / ML Engineer interviews:
 
@@ -22,119 +20,110 @@ This project showcases skills evaluated in Data Scientist / ML Engineer intervie
 
 ✅ Tradeoff-aware system design
 
------------------------------------------------------------------------------
+<h2>🚀 Key Capabilities</h2>
+<ul>
+<li>Content-based recommendations using textual embeddings</li>
 
-🚀 Key Capabilities
+<li>NLP pipeline with tokenization, stemming, stopword removal</li>
 
-Content-based recommendations using textual embeddings
+<li>Vectorization + Cosine Similarity for fast retrieval</li>
 
-NLP pipeline with tokenization, stemming, stopword removal
+<li>RESTful API using FastAPI</li>
 
-Vectorization + Cosine Similarity for fast retrieval
+<li>Offline preprocessing + online inference separation</li>
 
-RESTful API using FastAPI
+<li>Ready for cloud deployment & scaling</li>
+</ul>
 
-Offline preprocessing + online inference separation
+<h2>🧠 System Design Overview</h2>
 
-Ready for cloud deployment & scaling
+TMDB API<br>
+   ↓<br>
+Data Ingestion<br>
+   ↓<br>
+NLP Feature Engineering (NLTK)<br>
+   ↓<br>
+Vectorization (Bag-of-Words)<br>
+   ↓<br>
+Cosine Similarity Matrix<br>
+   ↓<br>
+FastAPI Inference Servicev
 
------------------------------------------------------------------------------
+<h2>🛠️ Tech Stack</h2>
+<table>
+<thead><tr>
+<td>Layer</td>
+<td>Technology</td>
+</tr></thead>
+<tbody>
+<tr><td>Language</td><td>Python</td></tr>
+<tr><td>API</td><td>FastAPI</td></tr>
+<tr><td>NLP</td><td>NLTK</td></tr>
+<tr><td>ML</td><td>Scikit-Learn</td></tr>
+<tr><td>Similarity Search</td><td>Cosine Similarity</td></tr>
+<tr><td>Data</td><td>Pandas, NumPy</td></tr>
+<tr><td>Serving</td><td>Uvicorn</td></tr>
+<tr><td>Config</td><td>dotenv</td></tr>
+</tbody>
+</table>
 
-🧠 System Design Overview
+<h2>📊 Data Source</h2>
 
-TMDB API
-   ↓
-Data Ingestion
-   ↓
-NLP Feature Engineering (NLTK)
-   ↓
-Vectorization (Bag-of-Words)
-   ↓
-Cosine Similarity Matrix
-   ↓
-FastAPI Inference Service
+Movie metadata fetched using The Movie Database (TMDB) API including:
+<ul>
+<li>Movie title</li>
+<li>Overview</li>
+<li>Genres</li>
+<li>Tagline</li>
+<li>Vote Average</li>
+<li>Popularity</li>
+</ul>
 
------------------------------------------------------------------------------
+<h2>Recommendation Strategy</h2>
 
-🛠️ Tech Stack
+<h3>Content-Based Filtering</h3>
 
-Layer	              Technology
-Language            Python<br>
-API	                FastAPI
-NLP	                NLTK
-ML	                Scikit-Learn
-Similarity Search	  Cosine Similarity
-Data	              Pandas, NumPy
-Serving	            Uvicorn
-Config	            dotenv
+<h4>Feature Construction</h4>
+<ul>
+<li>Merge overview, genres, keywords, cast, and crew</li>
+<li>Normalize text using NLP preprocessing</li>
+</ul>
 
------------------------------------------------------------------------------
+<h4>Vectorization</h4>
 
-📊 Data Source
+<ul>
+<li>Bag-of-Words (CountVectorizer, max_features=5000)</li>
+</ul>
 
-Movie metadata fetched using The Movie Database (TMDB) API
+<h4>Similarity Metric</h4>
 
-Includes:
+<ul>
+<li>Cosine Similarity on sparse vectors</li>
+</ul>
 
-Movie title
+<h4>Inference</h4>
+<ul>
+<li>Top-N most similar movies returned per request</li>
+<li>✔️ Chosen for interpretability, simplicity, and low-latency inference</li>
+</ul>
 
-Overview
+<h2>⚙️ Setup Instructions</h2>
 
-Genres
-
-Tagline
-
-Vote Average
-
-Popularity
-
------------------------------------------------------------------------------
-
-Recommendation Strategy
-
-Content-Based Filtering (Explainable ML)
-
-Feature Construction
-
-  . Merge overview, genres, keywords, cast, and crew
-
-  . Normalize text using NLP preprocessing
-
-Vectorization
-
-  . Bag-of-Words (CountVectorizer, max_features=5000)
-
-Similarity Metric
-
-  . Cosine Similarity on sparse vectors
-
-Inference
-
-  . Top-N most similar movies returned per request
-
-  . ✔️ Chosen for interpretability, simplicity, and low-latency inference
-
------------------------------------------------------------------------------
-
-⚙️ Setup Instructions
-
-Clone Repository
+<h4>Clone Repository</h4>
   git clone https://github.com/yourusername/movie-recommendation-system.git
   cd movie-recommendation-system
 
-Create Environment
+<h4>Create Environment</h4>
   python -m venv venv
   source venv/bin/activate
 
-Install Dependencies
+<h4>Install Dependencies</h4>
   pip install -r requirements.txt
 
-Configure API Key
+<h4>Configure API Key</h4>
   TMDB_API_KEY=your_api_key_here
 
------------------------------------------------------------------------------
-
-▶️ Run API Server
+<h2>▶️ Run API Server</h2>
 
 uvicorn app.main:app --reload
 
@@ -142,48 +131,37 @@ API will be available at:
 
 https://movie-recommendation-system-6r07.onrender.com
 
-
-Swagger UI:
+<h6>Swagger UI:</h6>
 
 https://movie-recommendation-system-6r07.onrender.com/docs
 
------------------------------------------------------------------------------
+<h2>📈 Performance & Scalability Notes</h2>
 
-📈 Performance & Scalability Notes
+<ul>
+<li>Precomputed similarity matrix → O(1) inference</li>
+<li>Stateless FastAPI service → horizontally scalable</li>
+<li>Can be upgraded to:
+<ul><li>TF-IDF / Word2Vec</li>
+<li>ANN search (FAISS)</li>
+<li>Hybrid recommender systems</li></ul>
+</li>
+</ul>
 
-Precomputed similarity matrix → O(1) inference
+<h2>👩‍💻 Author</h2>
 
-Stateless FastAPI service → horizontally scalable
-
-Can be upgraded to:
-
-TF-IDF / Word2Vec
-
-ANN search (FAISS)
-
-Hybrid recommender systems
-
------------------------------------------------------------------------------
-
-👩‍💻 Author
-
-Parampreet Kour
-Aspiring Data Scientist | ML Engineer
-Background: 6+ years Software Engineering → ML Transition
+<b>Parampreet Kour</b>
+Aspiring Data Scientist
+Background: 6+ years PHP Developer → ML Transition
 
 🔗 GitHub: https://github.com/parampreet832
 
------------------------------------------------------------------------------
-
-
-📜 License
+<h2>📜 License</h2>
 
 MIT License
 
------------------------------------------------------------------------------
+<h2>⭐ Acknowledgements</h2>
+<ul>
+<li>The Movie Database</li>
 
-⭐ Acknowledgements
-
-The Movie Database
-
-FastAPI & Scikit-Learn communities
+<li>FastAPI & Scikit-Learn communities</li>
+</ul>
